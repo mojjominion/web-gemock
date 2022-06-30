@@ -10,7 +10,7 @@ export const TextArea = ({
   };
 
   return (
-    <div className="flex flex-col text-orange-600 min-h-full">
+    <div className="flex flex-col min-h-full">
       <textarea
         className="flex p-3"
         rows={25}

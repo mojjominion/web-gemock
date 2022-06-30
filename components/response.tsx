@@ -1,18 +1,13 @@
-import dynamic from "next/dynamic";
+import { DynamicReactJson } from "./dynamicReactJson";
 
-const DynamicReactJson = dynamic(import("react-json-view"), { ssr: false });
-
-export const MockDataResponse = ({ data }: { data: unknown }) => {
+export const MockDataResponse = (props: { data: { data: unknown } }) => {
+  const { data = [] } = props.data || {};
   return (
     <div className="max-h-36">
       <DynamicReactJson
-        style={{
-          maxHeight: "90vh",
-          overflow: "hidden",
-          overflowY: "scroll",
-        }}
+        style={{ maxHeight: "90vh", overflow: "hidden", overflowY: "scroll" }}
         theme={"monokai"}
-        src={{ "Mock data": data }}
+        src={{ response: data }}
         enableClipboard={false}
         displayDataTypes={false}
         displayObjectSize={false}

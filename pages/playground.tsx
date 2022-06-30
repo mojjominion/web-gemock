@@ -7,7 +7,7 @@ import { beutifyJson } from "../utils/beutifyjson";
 
 export const Playground = () => {
   const [payload, setPaylod] = useState(
-    `{"config": {"usename": "userName", "password": "password"}}`
+    `{"config": {"name": "firstName", "email": "email", "city":"cityName"}}`
   );
   const queryFn = () => fetchData(payload, 4);
   const { data, refetch } = useQuery({ queryFn, queryKey: "mock_data" });
@@ -18,7 +18,7 @@ export const Playground = () => {
 
   return (
     <div>
-      <div className="flex justify-end">
+      <div className="relative">
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           onClick={getData}
@@ -30,6 +30,17 @@ export const Playground = () => {
         <TextArea {...{ payload, onChange: setPaylod }} />
         <MockDataResponse {...{ data }} />
       </div>
+      <p className="px-4">
+        Reference:{" "}
+        <a
+          className="text-blue-500"
+          target={"_blank"}
+          href="https://gemock.com/api"
+          rel="noreferrer"
+        >
+          https://gemock.com/api
+        </a>
+      </p>
     </div>
   );
 };
