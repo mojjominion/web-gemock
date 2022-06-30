@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { CopyBtnDemo } from "../components/copybutton";
+import { appConfig } from "../env/config";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -18,7 +19,7 @@ const Home: NextPage = () => {
         </h1>
         <p className={styles.description}>
           Generate mock data using{" "}
-          <code className={styles.code}>http:/gemock.com/api?count=100</code>
+          <code className={styles.code}>{appConfig.dev.baseUrl}?count=100</code>
         </p>
         <div className="flex flex-col text-center max-w-screen-lg">
           <code className={`${styles.code} text-start select-none`}>

@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { fetchData } from "../api/mockdata";
 import { TextArea } from "../components/editor";
 import { MockDataResponse } from "../components/response";
+import { appConfig } from "../env/config";
 import { beutifyJson } from "../utils/beutifyjson";
 
 export const Playground = () => {
@@ -35,10 +36,10 @@ export const Playground = () => {
         <a
           className="text-blue-500"
           target={"_blank"}
-          href="https://gemock.com/api"
+          href={appConfig.dev.baseUrl}
           rel="noreferrer"
         >
-          https://gemock.com/api
+          {appConfig.dev.baseUrl}
         </a>
       </p>
     </div>
