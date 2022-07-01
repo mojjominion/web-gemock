@@ -1,5 +1,5 @@
 export const appConfig = {
   dev: {
-    baseUrl: "https:/gemock.com/api",
+    baseUrl: "https:/api.gemock.com/api",
   },
 };

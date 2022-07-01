@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         </p>
         <div className="flex flex-col text-center max-w-screen-lg">
           <code className={`${styles.code} text-start select-none`}>
-            <p>{`curl -X 'POST' https://gemock.com/api\?count=3 `}</p>
+            <p>{`curl -X 'POST' ${appConfig.dev.baseUrl}\?count=3 `}</p>
             <p>{`-H "Content-Type: application/json" `}</p>
             <p>{`-d '{"config": {"user": "userCard", "email": "email"}}' | json_pp`}</p>
           </code>
