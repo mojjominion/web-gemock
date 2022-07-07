@@ -19,11 +19,11 @@ const Home: NextPage = () => {
         </h1>
         <p className={styles.description}>
           Generate mock data using{" "}
-          <code className={styles.code}>{appConfig.baseUrl}/api?count=100</code>
+          <code className={styles.code}>{appConfig.apiUrl}?count=100</code>
         </p>
         <div className="flex flex-col text-center max-w-screen-lg">
           <code className={`${styles.code} text-start select-none`}>
-            <p>{`curl -X 'POST' ${appConfig.apiUrl}/api\?count=3 `}</p>
+            <p>{`curl -X 'POST' ${appConfig.apiUrl}?count=3 `}</p>
             <p>{`-H "Content-Type: application/json" `}</p>
             <p>{`-d '{"config": {"user": "userCard", "email": "email"}}' | json_pp`}</p>
           </code>
