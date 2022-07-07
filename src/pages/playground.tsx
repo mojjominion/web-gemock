@@ -26,7 +26,7 @@ export const Playground = () => {
           <a
             className="text-blue-500"
             target={"_blank"}
-            href={appConfig.apiUrl}
+            href={appConfig.sample}
             rel="noreferrer"
           >
             {appConfig.apiUrl}

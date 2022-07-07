@@ -1,4 +1,5 @@
 import axios from "axios";
+import { appConfig } from "config";
 
 const axiosConfig = {
   baseURL: "",
@@ -9,7 +10,7 @@ const instance = axios.create(axiosConfig);
 export const fetchData = async (payload: string, count = 10) => {
   const d = await instance({
     method: "POST",
-    url: `https://api.gemock.com/api/?count=${count}`,
+    url: appConfig.apiUrl,
     data: JSON.parse(payload),
   });
 

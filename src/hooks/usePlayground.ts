@@ -3,20 +3,21 @@ import { useQuery } from "react-query";
 import { fetchData } from "../api/mockdata";
 import { beutifyJson } from "../utils/beutifyjson";
 
-export const defaultPayload = {
+export const defaultPayload = JSON.stringify({
   config: {
     A: "firstName",
     B: "email",
     C: "cityName",
   },
-};
-const initPayload = beutifyJson(JSON.stringify(defaultPayload));
+  count: "3",
+});
+export const initPayload = beutifyJson(defaultPayload);
 
 export const usePlayground = () => {
   const [payload, setPaylod] = useState(initPayload);
 
   const { data, refetch } = useQuery({
-    queryFn: () => fetchData(payload, 4),
+    queryFn: () => fetchData(payload),
     queryKey: "mock_data",
   });
 
