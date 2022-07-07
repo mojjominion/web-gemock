@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api:q",
+      "destination": "https://api.gemock.com/api:q"
+    }
+  ]
+}
