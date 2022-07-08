@@ -1,4 +1,4 @@
-import { templaterOptions } from "hooks/useConfigTemplate";
+import { templaterOptions } from "api/template";
 import { NextPage } from "next";
 import { dehydrate, QueryClient } from "react-query";
 import { TextArea } from "../components/editor";
@@ -22,19 +22,6 @@ const Playground: NextPage = () => {
         <TextArea {...{ payload, onChange: setPaylod }} />
         <MockDataResponse {...{ data }} />
       </div>
-      {/* <footer className="text-center lg:text-left">
-        <div className="px-2">
-          Reference:{" "}
-          <a
-            className="text-blue-500"
-            target={"_blank"}
-            href={appConfig.sample}
-            rel="noreferrer"
-          >
-            {appConfig.apiUrl}
-          </a>
-        </div>
-      </footer> */}
     </div>
   );
 };

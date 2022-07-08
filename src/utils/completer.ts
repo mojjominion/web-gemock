@@ -1,15 +1,4 @@
-import { useQuery } from "react-query";
-import { fetchTemplate } from "../api/mockdata";
-
-export const templaterOptions = {
-  queryKey: "template",
-  queryFn: fetchTemplate,
-  cacheTime: Infinity,
-  staleTime: Infinity,
-};
-export const useConfigAutoCompleter = () => {
-  const { data } = useQuery(templaterOptions);
-
+export const getCompleter = (data: any) => {
   const entries = (o: any) => Object.entries(o || {});
   const suggestions = entries(data?.config).flatMap(([meta, o]) =>
     entries(o).map(([_, value]) => ({ meta, value, caption: value }))

@@ -1,9 +1,11 @@
-import { useConfigAutoCompleter } from "hooks/useConfigTemplate";
+import { fetchTemplate } from "api/mockdata";
 import dynamic from "next/dynamic";
+import { getCompleter } from "utils/completer";
 
 export const AceEditor = dynamic(
   async () => {
-    const { jsonCompleter } = useConfigAutoCompleter();
+    const data = await fetchTemplate();
+    const { jsonCompleter } = getCompleter(data);
     const ace = await import("react-ace");
     const tools = await import("ace-builds/src-noconflict/ext-language_tools");
     await import("ace-builds/src-noconflict/theme-github");
@@ -11,6 +13,7 @@ export const AceEditor = dynamic(
 
     tools.setCompleters([]);
     tools.addCompleter(jsonCompleter);
+
     return ace;
   },
   {
