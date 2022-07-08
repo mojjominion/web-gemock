@@ -1,9 +1,11 @@
-import { appConfig } from "config";
+import { templaterOptions } from "hooks/useConfigTemplate";
+import { NextPage } from "next";
+import { dehydrate, QueryClient } from "react-query";
 import { TextArea } from "../components/editor";
 import { MockDataResponse } from "../components/response";
 import { usePlayground } from "../hooks/usePlayground";
 
-export const Playground = () => {
+const Playground: NextPage = () => {
   const { data, payload, getData, setPaylod } = usePlayground();
 
   return (
@@ -20,7 +22,7 @@ export const Playground = () => {
         <TextArea {...{ payload, onChange: setPaylod }} />
         <MockDataResponse {...{ data }} />
       </div>
-      <footer className="text-center lg:text-left">
+      {/* <footer className="text-center lg:text-left">
         <div className="px-2">
           Reference:{" "}
           <a
@@ -32,8 +34,15 @@ export const Playground = () => {
             {appConfig.apiUrl}
           </a>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 };
+export async function getStaticProps() {
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery(templaterOptions);
+  return {
+    props: { dehydratedState: dehydrate(queryClient) },
+  };
+}
 export default Playground;

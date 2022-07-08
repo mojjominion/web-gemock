@@ -16,3 +16,12 @@ export const fetchData = async (payload: string, count = 10) => {
 
   return d.data;
 };
+
+export const fetchTemplate = async () => {
+  const d = await instance({
+    method: "GET",
+    url: `${appConfig.apiUrl}/template`,
+  });
+
+  return d.data;
+};

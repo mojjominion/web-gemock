@@ -17,6 +17,9 @@ export function TextArea(props: {
       onChange={onTextChange}
       name="editor"
       className="flex-1"
+      enableBasicAutocompletion
+      enableLiveAutocompletion
+      enableSnippets
       editorProps={{ $blockScrolling: true }}
     />
   );
