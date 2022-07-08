@@ -10,7 +10,7 @@ export const templaterOptions = {
 export const useConfigAutoCompleter = () => {
   const { data } = useQuery(templaterOptions);
 
-  const entries = (o: unknown) => Object.entries(o || {});
+  const entries = (o: any) => Object.entries(o || {});
   const suggestions = entries(data?.config).flatMap(([meta, o]) =>
     entries(o).map(([_, value]) => ({ meta, value, caption: value }))
   );
